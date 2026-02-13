@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEINE_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DEINE_MEASUREMENT_ID');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passioneers Insight: Arbeitswelt 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Typography: Clean, Modern, Professional */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        :root {
+            /* Passioneers Brand Colors */
+            --passio-blue: #23408F;  /* Strong Compass Blue */
+            --passio-orange: #D94F2B; /* Vibrant Flame Orange */
+            --text-dark: #111827;
+            --text-gray: #4B5563;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB;
+            color: var(--text-dark);
+        }
+
+        /* Chart Container Utilities */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--passio-blue); border-radius: 4px; }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white sticky top-0 z-50 shadow-md border-b-4 border-[#23408F]">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                
+                <img src="Logo.png" alt="Passioneers Logo" class="h-16 w-auto mr-4 object-contain">
+                
+                <div class="border-l-2 border-gray-200 pl-4 h-10 flex items-center">
+                    <span class="font-extrabold text-2xl tracking-tight text-[#23408F]">Arbeit <span class="text-[#D94F2B]">2026</span></span>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-bold text-gray-600 uppercase tracking-wider">
+                <a href="#intro" class="hover:text-[#D94F2B] transition-colors duration-300">Status Quo</a>
+                <a href="#employees" class="hover:text-[#D94F2B] transition-colors duration-300">Mitarbeiter</a>
+                <a href="#companies" class="hover:text-[#D94F2B] transition-colors duration-300">Unternehmen</a>
+                <a href="#darkside" class="hover:text-[#D94F2B] transition-colors duration-300">Risiken</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="intro" class="relative bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 py-16 sm:py-20 lg:py-24">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-[#23408F] mb-6 leading-tight">
+                    Die Evolution der Arbeit
+                    <span class="block text-[#D94F2B] mt-2">1990 — 2026</span>
+                </h1>
+                <p class="mt-6 text-xl text-gray-600 leading-relaxed">
+                    Vom Faxgerät zur KI-Assistenz. Eine analytische Bilanz von 36 Jahren Transformation. Wir beleuchten die größten Errungenschaften und tiefsten Gräben unserer neuen Arbeitswelt – aus der Sicht derer, die sie gestalten.
+                </p>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
+                <div class="bg-white overflow-hidden shadow-lg rounded-xl p-8 border-t-8 border-[#23408F] hover:shadow-xl transition-shadow">
+                    <dt class="text-sm font-bold text-gray-400 uppercase tracking-wide">Remote Quote (DE)</dt>
+                    <dd class="mt-2 text-4xl font-black text-[#23408F]">42%</dd>
+                    <p class="text-sm text-gray-500 mt-2 font-medium">Startwert 1990: < 2% (Nische)</p>
+                </div>
+                <div class="bg-white overflow-hidden shadow-lg rounded-xl p-8 border-t-8 border-[#D94F2B] hover:shadow-xl transition-shadow">
+                    <dt class="text-sm font-bold text-gray-400 uppercase tracking-wide">Job-Wechsel Frequenz</dt>
+                    <dd class="mt-2 text-4xl font-black text-[#D94F2B]">3.2 Jahre</dd>
+                    <p class="text-sm text-gray-500 mt-2 font-medium">vs. 10+ Jahre in 1990</p>
+                </div>
+                <div class="bg-white overflow-hidden shadow-lg rounded-xl p-8 border-t-8 border-gray-800 hover:shadow-xl transition-shadow">
+                    <dt class="text-sm font-bold text-gray-400 uppercase tracking-wide">Hierarchie-Ebenen</dt>
+                    <dd class="mt-2 text-4xl font-black text-gray-800">⬇ 60%</dd>
+                    <p class="text-sm text-gray-500 mt-2 font-medium">Radikale Abflachung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="employees" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block py-1 px-3 rounded-full bg-orange-100 text-[#D94F2B] text-xs font-bold tracking-widest uppercase mb-4">Perspektive: Mitarbeiter</span>
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Die <span class="text-[#D94F2B]">Freiheit</span> der Arbeit
+                </h2>
+                <p class="mt-4 max-w-2xl text-lg text-gray-500 mx-auto">
+                    Arbeit ist kein Ort mehr, sondern eine Tätigkeit. Selbstbestimmung und Sinnhaftigkeit sind die Währungen der neuen Generation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="flex group">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-14 w-14 rounded-full bg-[#D94F2B] text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">1</div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-900">Flexibilität & Souveränität</h3>
+                            <p class="mt-2 text-gray-600 leading-relaxed">Ende der Präsenzkultur. Home Office und Workation erlauben die nahtlose Integration von Arbeit in das Leben.</p>
+                        </div>
+                    </div>
+                    <div class="flex group">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-14 w-14 rounded-full bg-[#D94F2B] text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">2</div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-900">Purpose & Impact</h3>
+                            <p class="mt-2 text-gray-600 leading-relaxed">Verschiebung vom "Brotjob" zur Selbstverwirklichung. Die Frage nach dem "Wozu" steht zentral.</p>
+                        </div>
+                    </div>
+                    <div class="flex group">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-14 w-14 rounded-full bg-[#D94F2B] text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">3</div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-900">Servant Leadership</h3>
+                            <p class="mt-2 text-gray-600 leading-relaxed">Vom Befehlsempfänger zum Mitgestalter. Führungskräfte dienen dem Team, nicht umgekehrt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-inner border border-gray-100">
+                    <h4 class="text-center font-bold text-[#D94F2B] mb-6 uppercase tracking-wider text-sm">Qualitativer Wandel: 1990 vs. 2026</h4>
+                    <div class="chart-container">
+                        <canvas id="employeeWinsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="companies" class="py-20 bg-[#23408F] text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-800 text-blue-200 text-xs font-bold tracking-widest uppercase mb-4">Perspektive: Unternehmen</span>
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Geschwindigkeit & Reichweite
+                </h2>
+                <p class="mt-4 max-w-2xl text-lg text-blue-200 mx-auto">
+                    Technologie und Agilität haben die Grenzen des Wachstums gesprengt. Unternehmen agieren heute globaler und schneller als je zuvor.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-blue-900/50 rounded-xl p-8 border border-blue-700 backdrop-blur-sm hover:bg-blue-800 transition-colors">
+                    <h3 class="font-bold text-xl text-white mb-3">1. Agilität & Time-to-Market</h3>
+                    <p class="text-blue-200">Cross-funktionale Squads ersetzen Silos. Produkte erreichen Marktreife in Wochen statt Jahren.</p>
+                </div>
+                <div class="bg-blue-900/50 rounded-xl p-8 border border-blue-700 backdrop-blur-sm hover:bg-blue-800 transition-colors">
+                    <h3 class="font-bold text-xl text-white mb-3">2. Globaler Talentpool</h3>
+                    <p class="text-blue-200">Recruiting ohne Grenzen. Die besten Köpfe werden weltweit eingestellt, unabhängig vom Standort.</p>
+                </div>
+                <div class="bg-blue-900/50 rounded-xl p-8 border border-blue-700 backdrop-blur-sm hover:bg-blue-800 transition-colors">
+                    <h3 class="font-bold text-xl text-white mb-3">3. Effizienz durch KI</h3>
+                    <p class="text-blue-200">KI-Agenten übernehmen repetitive Prozesse. Fokus auf Wertschöpfung und Innovation.</p>
+                </div>
+                <div class="bg-blue-900/50 rounded-xl p-8 border border-blue-700 backdrop-blur-sm hover:bg-blue-800 transition-colors">
+                    <h3 class="font-bold text-xl text-white mb-3">4. Innovationskultur</h3>
+                    <p class="text-blue-200">"Fail Fast" als Prinzip. Fehler sind Lernchancen, keine Karrierekiller.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-gray-900">
+                <h4 class="text-lg font-bold text-[#23408F] mb-6 border-b border-gray-200 pb-4">Produktivitätsfaktoren im Vergleich</h4>
+                <div class="chart-container" style="max-height: 300px;">
+                    <canvas id="companyWinsChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-6 italic text-center">Faktor der Verbesserung gegenüber 1990</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="darkside" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block py-1 px-3 rounded-full bg-gray-700 text-gray-300 text-xs font-bold tracking-widest uppercase mb-4">Risiko-Analyse</span>
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Die Schattenseiten der Transformation
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-400 mx-auto">
+                    Wo Licht ist, ist auch Schatten. Die Freiheit hat ihren Preis in Form von Entgrenzung und Kulturverlust.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-2xl font-bold text-[#D94F2B] mb-8 border-b border-gray-700 pb-4">Belastung: Mitarbeiter</h3>
+                    <ul class="space-y-8">
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1"><div class="h-3 w-3 rounded-full bg-[#D94F2B]"></div></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Always On & Burnout</h4>
+                                <p class="text-gray-400 text-sm mt-1">Die ständige Erreichbarkeit führt zu massiver psychischer Belastung.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1"><div class="h-3 w-3 rounded-full bg-[#D94F2B]"></div></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Soziale Isolation</h4>
+                                <p class="text-gray-400 text-sm mt-1">Kollegen werden zu Pixeln. Verlust physischer Nähe.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-[#23408F] mb-8 border-b border-gray-700 pb-4">Risiken: Unternehmen</h3>
+                    <ul class="space-y-8">
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1"><div class="h-3 w-3 rounded-full bg-[#23408F]"></div></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Loyalty Decay</h4>
+                                <p class="text-gray-400 text-sm mt-1">Ohne emotionale Bindung steigt die Wechselbereitschaft.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1"><div class="h-3 w-3 rounded-full bg-[#23408F]"></div></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Kultur-Erosion</h4>
+                                <p class="text-gray-400 text-sm mt-1">DNA lässt sich schwer digital übertragen.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 flex flex-col">
+                    <h4 class="text-center font-bold text-gray-200 mb-2">Mitarbeiterbelastungs-Index</h4>
+                    <p class="text-center text-xs text-gray-400 mb-6">Psychische Intensität & Betroffenheit</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="employeeStressChart"></canvas>
+                    </div>
+                    <div class="mt-6 border-t border-gray-700 pt-4">
+                        <div class="flex justify-between text-xs text-gray-400">
+                            <span>Niedrig</span>
+                            <span class="text-[#D94F2B] font-bold">Akut kritisch</span>
+                        </div>
+                        <div class="w-full h-1 bg-gradient-to-r from-gray-600 to-[#D94F2B] mt-1 rounded"></div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 flex flex-col">
+                    <h4 class="text-center font-bold text-gray-200 mb-2">Unternehmensrisiko-Monitor</h4>
+                    <p class="text-center text-xs text-gray-400 mb-6">Strategische Bedrohungslage</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="companyChallengesChart"></canvas>
+                    </div>
+                    <div class="mt-6 border-t border-gray-700 pt-4 text-center">
+                        <p class="text-xs text-gray-400">Risiko-Bewertung nach finanziellem Impact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sources" class="py-12 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Datengrundlage & Quellen (Stand 2026)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-8 text-xs text-gray-500">
+                <div class="flex items-start">
+                    <span class="text-[#D94F2B] mr-2">›</span>
+                    <a href="#" class="hover:text-[#23408F] transition hover:underline">State of Remote Work 2025 (Bitkom)</a>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-[#D94F2B] mr-2">›</span>
+                    <a href="#" class="hover:text-[#23408F] transition hover:underline">Gallup Engagement Index 2026 (Global Edition)</a>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-[#D94F2B] mr-2">›</span>
+                    <a href="#" class="hover:text-[#23408F] transition hover:underline">KI-Monitor Arbeitswelt (Bundesministerium für Arbeit)</a>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-[#D94F2B] mr-2">›</span>
+                    <a href="#" class="hover:text-[#23408F] transition hover:underline">Deloitte Global Human Capital Trends 2026</a>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-[#D94F2B] mr-2">›</span>
+                    <a href="#" class="hover:text-[#23408F] transition hover:underline">Workforce Health Report (WHO & ILO)</a>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-[#D94F2B] mr-2">›</span>
+                    <a href="#" class="hover:text-[#23408F] transition hover:underline">Passioneers Internal Benchmarks 2026</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-16 border-t-4 border-[#D94F2B]">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black text-[#23408F] mb-6">Das Passioneers Fazit</h2>
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                Die Arbeitswelt 2026 fordert eine neue Balance. Die Technologie ist vorhanden, die Freiheit gewährt. Die Herausforderung für die Zukunft liegt in der bewussten Gestaltung von <strong>Verbindung</strong> in einer entgrenzten Welt.
+            </p>
+            <div class="flex justify-center space-x-6">
+                <div class="px-8 py-4 bg-[#23408F] text-white rounded-lg font-bold shadow-lg">Structure & Trust</div>
+                <div class="px-8 py-4 bg-[#D94F2B] text-white rounded-lg font-bold shadow-lg">Passion & Purpose</div>
+            </div>
+            <p class="mt-12 text-sm text-gray-400 font-semibold">&copy; 2026 Passioneers. Designed for the Future of Work.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Global defaults
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#4B5563';
+        
+        // Colors
+        const PASSIO_BLUE = '#23408F';
+        const PASSIO_ORANGE = '#D94F2B';
+        const PASSIO_BLUE_LIGHT = 'rgba(35, 64, 143, 0.2)';
+        const PASSIO_ORANGE_LIGHT = 'rgba(217, 79, 43, 0.2)';
+        const COLOR_TEAL = '#0D9488';
+        const COLOR_PURPLE = '#7C3AED';
+        const COLOR_RED = '#DC2626';
+        const COLOR_SKY = '#0EA5E9';
+        const COLOR_AMBER = '#F59E0B';
+
+        // Label Processing
+        function processLabels(labels) {
+            return labels.map(label => {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = words[0];
+                    for (let i = 1; i < words.length; i++) {
+                        if ((currentLine + " " + words[i]).length < 16) {
+                            currentLine += " " + words[i];
+                        } else {
+                            lines.push(currentLine);
+                            currentLine = words[i];
+                        }
+                    }
+                    lines.push(currentLine);
+                    return lines;
+                }
+                return label;
+            });
+        }
+
+        // 1. Radar Chart: Employee Wins
+        new Chart(document.getElementById('employeeWinsChart').getContext('2d'), {
+            type: 'radar',
+            data: {
+                labels: processLabels(['Flexibilität', 'Ortsunabhängigkeit', 'Sinnhaftigkeit', 'Selbstbestimmung', 'Gesundheit']),
+                datasets: [{
+                    label: '1990 (Traditionell)',
+                    data: [2, 1, 2, 3, 4],
+                    fill: true,
+                    backgroundColor: 'rgba(107, 114, 128, 0.2)',
+                    borderColor: '#6B7280',
+                    pointBackgroundColor: '#6B7280',
+                    pointBorderColor: '#fff'
+                }, {
+                    label: '2026 (New Work)',
+                    data: [9, 9, 8, 8, 7],
+                    fill: true,
+                    backgroundColor: PASSIO_ORANGE_LIGHT,
+                    borderColor: PASSIO_ORANGE,
+                    pointBackgroundColor: PASSIO_ORANGE,
+                    pointBorderColor: '#fff',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { display: true, color: '#E5E7EB' },
+                        grid: { color: '#E5E7EB' },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        ticks: { display: false, backdropColor: 'transparent' }
+                    }
+                }
+            }
+        });
+
+        // 2. Bar Chart: Company Wins
+        new Chart(document.getElementById('companyWinsChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: processLabels(['Marktreaktionszeit', 'Globaler Talentpool', 'Raumkosteneffizienz', 'Innovationsrate', 'Automatisierung']),
+                datasets: [{
+                    label: 'Verbesserungsfaktor (x-fach)',
+                    data: [8.5, 9.0, 4.2, 5.5, 7.0],
+                    backgroundColor: [PASSIO_BLUE, PASSIO_ORANGE, COLOR_TEAL, COLOR_PURPLE, COLOR_SKY],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { x: { grid: { display: false } }, y: { grid: { display: false } } }
+            }
+        });
+
+        // 3. Polar Area: Employee Stress
+        new Chart(document.getElementById('employeeStressChart').getContext('2d'), {
+            type: 'polarArea',
+            data: {
+                labels: processLabels(['Entgrenzung', 'Isolation', 'Info-Overload', 'Überwachung', 'Zukunftsangst']),
+                datasets: [{
+                    label: 'Intensität',
+                    data: [9, 7, 8, 5, 6],
+                    backgroundColor: [
+                        'rgba(217, 79, 43, 0.8)',
+                        'rgba(14, 165, 233, 0.8)',
+                        'rgba(124, 58, 237, 0.8)',
+                        'rgba(75, 85, 99, 0.8)',
+                        'rgba(245, 158, 11, 0.8)'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        grid: { color: '#4B5563' },
+                        ticks: { display: false, backdropColor: 'transparent', z: 10 },
+                        suggestedMax: 10
+                    }
+                },
+                plugins: { legend: { position: 'right', labels: { color: '#D1D5DB', font: { size: 10 } } } }
+            }
+        });
+
+        // 4. Bar Chart: Company Challenges
+        new Chart(document.getElementById('companyChallengesChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: processLabels(['Fluktuation', 'Cyber-Security', 'Kulturverlust', 'Komplexität', 'Wissensabfluss']),
+                datasets: [{
+                    label: 'Risiko-Level',
+                    data: [9, 8, 8.5, 7, 7.5],
+                    backgroundColor: [PASSIO_ORANGE, COLOR_RED, COLOR_PURPLE, COLOR_TEAL, PASSIO_BLUE],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        grid: { color: '#374151' },
+                        ticks: { 
+                            color: '#9CA3AF',
+                            callback: function(value) {
+                                if (value === 10) return 'Existenzbedrohend';
+                                if (value === 7.5) return 'Strategisch kritisch';
+                                if (value === 5) return 'Spürbar';
+                                if (value === 2.5) return 'Gering';
+                                if (value === 0) return 'Kein Risiko';
+                                return null;
+                            }
+                        }
+                    },
+                    x: { grid: { display: false }, ticks: { color: '#D1D5DB' } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    </script>
+</body>
+</html>
